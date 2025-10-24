@@ -1,6 +1,7 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
-import { fileURLToPath } from "node:url";
-import { createRequire } from "node:module";
+import { createRequire } from 'node:module';
+import { features } from 'node:process';
+import { fileURLToPath } from 'node:url';
 import path, { dirname } from 'path';
 import fg from 'fast-glob';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
@@ -47,7 +48,7 @@ export default {
   },
 
   addons: [
-    // getAbsolutePath('storybook-dark-mode'),
+    getAbsolutePath('@storybook/addon-docs'),
     {
       name: getAbsolutePath('@storybook/addon-styling-webpack'),
       options: {
@@ -99,7 +100,12 @@ export default {
     return config;
   },
 
-  typescript: {
-    reactDocgen: false,
+  // typescript: {
+  //   reactDocgen: false,
+  // },
+
+  features: {
+    experimentalCodeExamples: true,
+    experimentalComponentsManifest: true,
   },
 };
