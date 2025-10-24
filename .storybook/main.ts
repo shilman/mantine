@@ -32,6 +32,7 @@ const storiesPath = !argv._[1]
 
 export default {
   stories: storiesPath,
+
   core: {
     disableWhatsNewNotifications: true,
     disableTelemetry: true,
@@ -39,9 +40,9 @@ export default {
   },
 
   addons: [
-    getAbsolutePath('storybook-dark-mode'),
+    // getAbsolutePath('storybook-dark-mode'),
     {
-      name: '@storybook/addon-styling-webpack',
+      name: getAbsolutePath('@storybook/addon-styling-webpack'),
       options: {
         rules: [
           {
@@ -89,10 +90,6 @@ export default {
     };
 
     return config;
-  },
-
-  docs: {
-    autodocs: false,
   },
 
   typescript: {
